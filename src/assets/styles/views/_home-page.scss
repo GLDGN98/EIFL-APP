@@ -1,0 +1,163 @@
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  // background-image: url('../../../assets/img/background-football.jpg');
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: cover;
+
+  padding: 0 2em;
+  margin-top: 2.5em;
+
+
+  &::before {
+    /* Add the background image to the ::before pseudo-element */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../assets/img/background-football.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    /* Start with opacity 0 */
+    z-index: -1;
+    animation: fadeIn 0.5s forwards;
+    /* Add an animation to fade in the background image */
+  }
+
+  /* Adjust the height to cover the whole viewport */
+  height: 100vh;
+
+  /* Optionally, add a loading spinner or placeholder content */
+  &.loading {
+    /* Add your styles for the loading state */
+  }
+
+
+  /* Define the fadeIn animation */
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  h1 {
+    font-size: $fz3;
+    letter-spacing: 5px;
+    text-align: center;
+    font-family: OpenSansHebrewBold;
+    border-bottom: 2px solid white;
+  }
+
+  h2 {
+    font-size: $fz2;
+    letter-spacing: 3px;
+    text-align: center;
+    font-family: OpenSansHebrewBold;
+
+  }
+
+  .video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 400px;
+    min-height: 250px;
+    background-color: rgb(19, 19, 19);
+    text-align: center;
+    padding: 2rem;
+    color: white;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+
+    svg {
+      font-size: 3rem;
+    }
+  }
+
+  .content {
+    text-align: right;
+    max-width: 800px;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+
+
+    p {
+      font-size: 1.2rem;
+
+    }
+  }
+
+  .social-links {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    span {
+      font-size: $fz1;
+      letter-spacing: 0.5px;
+      font-family: OpenSansHebrewLight;
+      border-bottom: 1px solid white;
+
+    }
+
+    ul {
+      display: flex;
+      gap: 1em;
+      list-style: none;
+      margin-top: 1rem;
+
+      li {
+        a {
+          display: inline-block;
+          position: relative;
+          transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+          border-bottom: 2px solid transparent;
+          border-radius: 5px;
+
+          img {
+            width: 50px;
+            border-radius: 5px;
+          }
+
+          &:hover {
+            transform: scale(1.1);
+            border-color: #fff;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page {
+
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .video {
+      min-height: 200px;
+      min-width: 300px;
+    }
+
+    .content p {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}

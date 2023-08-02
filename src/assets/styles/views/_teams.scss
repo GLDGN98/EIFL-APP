@@ -1,0 +1,89 @@
+.teams {
+    display: flex;
+    gap: 1em;
+    margin-top: 4em;
+
+    .south-team,
+    .north-team {
+        width: 50%;
+        text-align: center;
+
+        .header {
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-bottom: 2px solid #ccc;
+            font-size: $fz2;
+        }
+
+        .team-list {
+
+            &.north,
+            &.south {
+                display: flex;
+                /* Use flexbox */
+                flex-wrap: wrap;
+                /* Allow cards to wrap to the next line */
+                justify-content: space-between;
+                /* Adjust card spacing */
+            }
+
+            .team {
+                flex-basis: calc(50% - 0.5em);
+                /* Adjust the basis to accommodate two cards per row with 1em gap */
+                padding: 10px;
+                border-radius: 5px;
+                background-color: white;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                margin-bottom: 1em;
+                /* Add some margin between the cards */
+
+                .team-image {
+                    img {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        max-width: 80px;
+                        margin: 0 auto;
+                        transition: transform 0.2s ease;
+                    }
+
+                }
+
+                .team-name {
+                    margin-top: 5px;
+                    text-align: center;
+                    font-weight: bold;
+                }
+
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+                    .team-image {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .teams {
+
+        .team-list {
+
+            &.north,
+            &.south {
+                justify-content: center !important;
+
+
+                .team {}
+
+            }
+        }
+    }
+}

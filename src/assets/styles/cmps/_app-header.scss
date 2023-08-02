@@ -1,0 +1,195 @@
+// Variables
+$primary-color: #1D5D9B;
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    background-color: $primary-color;
+    padding-inline: 2em;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+
+
+    .culture-and-sport {
+        display: flex;
+        align-items: center;
+        padding: 0.4em;
+
+
+        img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+    }
+
+    .main-nav {
+        display: flex;
+        list-style: none;
+        gap: 2em;
+        position: relative;
+
+        a {
+            border: 1px solid transparent;
+            width: fit-content;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -3px;
+                left: 50%;
+                /* Start the line from the middle */
+                width: 0;
+                /* Set initial width to 0 */
+                height: 1.5px;
+                background-color: #fff;
+                transform: translateX(-50%) scaleX(0);
+                /* Translate to center and set initial width to 0 */
+                transform-origin: center;
+                /* Set the transform-origin to the center */
+                transition: transform 0.3s ease;
+            }
+
+
+            &:hover::after {
+                width: 100%;
+                /* Expand the line to full width */
+                transform: translateX(-50%) scaleX(1);
+                /* Translate to center and expand width */
+            }
+        }
+
+        li {
+            cursor: pointer;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+
+        .dropdown {
+            position: absolute;
+            background-color: #1D5D9B;
+            display: flex;
+            flex-direction: column;
+            min-width: 100px;
+            align-items: center;
+            left: -5%;
+            gap: 1em;
+            z-index: 10;
+            padding: 1em;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            opacity: 0.85;
+
+            &:hover {
+                opacity: 1;
+            }
+
+
+        }
+    }
+
+    .hamburger-menu {
+        display: none; // Hide the hamburger menu on larger screens
+        color: white;
+    }
+}
+
+// Media query for mobile screens
+@media (max-width: 769px) {
+    .app-header {
+        // flex-direction: column;
+        // padding-bottom: 1em; // Add some spacing at the bottom to separate the hamburger menu
+
+        .main-nav {
+            display: none; // Hide the main-nav links on mobile screens
+            flex-direction: column;
+            align-items: center;
+
+
+
+            a {
+                margin-bottom: 1em;
+                padding: 0.5em 1em;
+
+
+            }
+
+            &.open {
+                display: flex;
+                position: absolute;
+                background-color: #1D5D9B;
+                right: 0;
+                top: calc(0% + 35px);
+                width: 100%;
+
+            }
+        }
+
+        .culture-and-sport {
+            display: flex;
+            align-items: center;
+
+            img {
+                max-width: 100px;
+                padding: 0.2em;
+            }
+        }
+
+        .hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 15px;
+
+            .bar {
+                width: 25px;
+                height: 3px;
+                background-color: white;
+                margin: 3px 0;
+                border-radius: 5px;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+                /* Add transition for smooth animation */
+            }
+
+            /* Initial state of the hamburger icon */
+            .bar1,
+            .bar3 {
+                transform: translateY(0) rotate(0);
+            }
+
+            /* Middle bar is visible in the initial state */
+            .bar2 {
+                opacity: 1;
+            }
+
+            /* Animation when the mobile menu is open */
+            &.open {
+                .bar1 {
+                    transform: translateY(10px) rotate(-45deg);
+                }
+
+                .bar2 {
+                    opacity: 0;
+                    /* Hide the middle bar when the menu is open */
+                }
+
+                .bar3 {
+                    transform: translateY(-8px) rotate(45deg);
+                }
+            }
+        }
+    }
+}

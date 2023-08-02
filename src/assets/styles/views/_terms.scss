@@ -1,0 +1,166 @@
+.terms-page {
+
+    margin-top: 2.5em;
+
+    .download-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .download-link {
+            text-align: center;
+            // font-family: NotoSansHebrew;
+        }
+
+        .term-b {
+            width: 100px;
+            margin: auto;
+
+        }
+    }
+
+    .terms {
+
+        // background-image: url("../../img/rules.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        /* Add this line */
+        height: 65vh;
+        position: relative;
+
+
+        &::before {
+            /* Add the background image to the ::before pseudo-element */
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("../../img/rules.jpg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0;
+            /* Start with opacity 0 */
+            z-index: -1;
+            animation: fadeIn 0.5s forwards;
+            /* Add an animation to fade in the background image */
+
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Define the fadeIn animation */
+
+
+
+        .lazy-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            /* Optional: set the image to cover the entire container */
+
+        }
+
+
+
+        .three-terms {
+            // font-family: NotoSansHebrew;
+            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5em;
+            max-width: 1024px;
+            margin: 2em auto;
+
+            .term {
+                min-height: 350px;
+                background: rgb(66, 34, 195);
+                background: linear-gradient(0deg, rgba(66, 34, 195, 1) 0%, rgba(56, 166, 223, 1) 0%, rgba(45, 81, 253, 1) 49%, rgba(45, 81, 253, 1) 69%);
+                position: relative;
+                border-radius: 5px;
+                color: white;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+
+                h1 {
+                    border-bottom: 2px solid white;
+                    padding-bottom: 0.25em;
+                    font-size: $fz2;
+                }
+
+                p {
+                    text-transform: uppercase;
+                    padding: 0 1em;
+                    font-size: 1rem;
+                }
+
+
+                img {
+                    width: 50px;
+                    position: absolute;
+                    bottom: -5%;
+                    left: 45%;
+                }
+
+            }
+        }
+
+    }
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .terms-page {
+        overflow: auto;
+
+        .download-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            bottom: -40%;
+        }
+
+        .terms {
+            .three-terms {
+                display: flex;
+                flex-direction: column;
+
+                .term {
+                    min-height: 250px;
+                    margin: 0 1em;
+
+                    p {
+                        font-size: 0.80rem;
+                        padding: 0 1em;
+
+                    }
+
+                    img {
+                        width: 50px;
+                        bottom: -8%;
+                    }
+                }
+            }
+
+        }
+    }
+
+}
