@@ -4,48 +4,12 @@
   align-items: center;
   flex-direction: column;
   color: white;
-  // background-image: url('../../../assets/img/background-football.jpg');
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // background-size: cover;
-
+  background-image: url('../../../assets/img/background-football.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
   padding: 0 2em;
+  background-size: cover;
   margin-top: 2.5em;
-
-
-  &::before {
-    /* Add the background image to the ::before pseudo-element */
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../../../assets/img/background-football.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0;
-    /* Start with opacity 0 */
-    z-index: -1;
-    animation: fadeIn 0.5s forwards;
-    /* Add an animation to fade in the background image */
-  }
-
-  /* Adjust the height to cover the whole viewport */
-  height: 100vh;
-
-  /* Optionally, add a loading spinner or placeholder content */
-  &.loading {
-    /* Add your styles for the loading state */
-  }
-
-
-  /* Define the fadeIn animation */
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
 
   h1 {
     font-size: $fz3;
